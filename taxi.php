@@ -1,7 +1,12 @@
 <?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+date_default_timezone_set('Europe/Rome');
+
         if(date('H') < 6 || date('H') > 22)
         {
-            if(date('N', strtotime($date)) >= 6)
+            if(date('N', strtotime(date())>6)
                 $quota = 4.5;
             else
                 $quota = 3.0;
