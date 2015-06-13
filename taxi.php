@@ -4,9 +4,11 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 date_default_timezone_set('Europe/Rome');
 
+
+
         if(date('H') < 6 || date('H') > 22)
         {
-            if(date('N', strtotime(date())>6)
+            if( date('N', time() ) > 6 )
                 $quota = 4.5;
             else
                 $quota = 3.0;
@@ -16,10 +18,10 @@ date_default_timezone_set('Europe/Rome');
             $quota = 6.5;
         }
         
-        $lat1 = $_GET['lat1'];
-        $long1 = $_GET['long1'];
-        $lat2 = $_GET['lat2'];
-        $long2 = $_GET['long2'];
+        $lat1  = @$_GET['lat1'];
+        $long1 = @$_GET['long1'];
+        $lat2  = @$_GET['lat2'];
+        $long2 = @$_GET['long2'];
         
         if(distanceGeoPoints(41.794977, 12.252183, $lat1, $long1) < 100 && distanceGeoPoints(41.823252, 12.414329, $lat2, $long2) < 100)
         {
@@ -83,7 +85,7 @@ date_default_timezone_set('Europe/Rome');
         }
         else
         {
-            $price = $quota + $dist*1.3;
+            $price = $quota + @$dist*1.3;
         }
         
             $url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=".$lat1.",".$long1."&destinations=".$lat2.",".$long2."&mode=driving&language=it-IT";
@@ -96,10 +98,13 @@ date_default_timezone_set('Europe/Rome');
             $response = curl_exec($ch);
             curl_close($ch);
             $response_a = json_decode($response, true);
-            $dist = $response_a['rows'][0]['elements'][0]['distance']['text'];
-            $time = $response_a['rows'][0]['elements'][0]['duration']['text'];
+            $dist = @$response_a['rows'][0]['elements'][0]['distance']['text'];
+            $time = @$response_a['rows'][0]['elements'][0]['duration']['text'];
         
-        return json_encode(
+
+
+
+        echo json_encode(
             array(
                 'distance' => $dist, 
                 'time' => $time, 
