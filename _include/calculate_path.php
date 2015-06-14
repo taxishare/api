@@ -1,5 +1,6 @@
 <?php 
 function calculatePath(){
+
         if(date('H') < 6 || date('H') > 22)
         {
             if( date('N', time() ) > 6 )
@@ -105,7 +106,7 @@ function calculatePath(){
 
 
 
-        $searchString = $_SESSION['user'] . "|" . $lat1 . ";" . $long1  . ";" .  $lat2  . ";" . $long2 ; 
+        $searchString = $_GET['userid'] . "|" . $lat1 . ";" . $long1  . ";" .  $lat2  . ";" . $long2 ; 
         $compare = comparePath($searchString);
         saveData($searchString);
 
