@@ -72,7 +72,7 @@ if(isset($_GET['accept_share'])){
 	$current = @file_get_contents(SHARE);
 
 	if(empty($current)){
-		echo json_encode( array('result'=>'false') );
+		echo json_encode( array('result'=>'null') );
 	} else {
 
 		file_put_contents(SHARE, "");
