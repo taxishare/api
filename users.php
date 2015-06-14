@@ -47,10 +47,12 @@ function setUserData($userid){
 }
 
 
-	if(!isset($_SESSION['user']) ){
-        echo json_encode( array('error'=>'user not found') );
-        exit;
-    }
+
+
+	//if(!isset($_SESSION['user']) ){
+    //    echo json_encode( array('error'=>'user not found') );
+    //    exit;
+    //}
 
 
 
@@ -62,6 +64,8 @@ if(isset($_GET['logout'])){
 	echo json_encode( array('logout!') );
 
 }else if(isset($_POST['userid']) AND isset($_POST['password']) AND !isset($_GET['lat1'])){
+
+
 	return checkLogin(); 
 }else if( !isset($_GET['lat1']) ){
 
