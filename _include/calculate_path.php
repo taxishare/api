@@ -160,7 +160,7 @@ function calculatePath(){
 
         if( $current_arr[0] != $pathString[0]  AND  $current_arr[1] == $pathString[1] ){  
             
-            $user = setUserData($pathString[0]);
+            $user = setUserData($current_arr[0]);
 
             return $user; 
         }
