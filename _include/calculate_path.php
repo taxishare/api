@@ -111,6 +111,8 @@ function calculatePath(){
         saveData($searchString);
 
 
+        if(!$compare){$compare=NULL;}
+
         echo json_encode(
             array(
                 'distance' => $dist, 
