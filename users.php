@@ -2,6 +2,10 @@
 session_start();
 ob_start();
 
+define("LOG", "book/save");
+define("SHARE", "book/share");
+
+
 // users DB
 $users = array(
 		'gabriele' => array(
@@ -25,7 +29,8 @@ function checkLogin(){
 			$_SESSION['user'] = $_POST['userid']; 
 			$user = setUserData($_POST['userid']);
 			
-			echo json_encode( array('user'=>$user) );
+			//echo json_encode( array('user'=>$user) );
+			echo json_encode($user);
 
 			return true;
 		}
@@ -56,8 +61,25 @@ function setUserData($userid){
 
 
 
+if(isset($_GET['accept_share'])){
+	file_put_contents(SHARE, "1");
+	echo json_encode( array('ok') );
 
-if(isset($_GET['logout'])){
+}else if(isset($_GET['check_share'])){
+
+
+
+	$current = @file_get_contents(SHARE);
+
+	if(empty($current)){
+		echo json_encode( array('result'=>'false') );
+	} else {
+
+		file_put_contents(SHARE, "");
+		echo json_encode( array('result'=>'true') );
+	}
+
+}else if(isset($_GET['logout'])){
 	unset($_SESSION['user']);
 	session_destroy();
 

@@ -1,6 +1,5 @@
 <?php
 
-define("LOG", "book/save");
 
 include("users.php");
 
