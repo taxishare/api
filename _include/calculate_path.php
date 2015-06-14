@@ -144,6 +144,9 @@ function calculatePath(){
         file_put_contents(LOG, $content);
     }
 
+    
+
+
 
     function comparePath($pathString){
         
@@ -156,8 +159,9 @@ function calculatePath(){
 
 
         if( $current_arr[0] != $pathString[0]  AND  $current_arr[1] == $pathString[1] ){  
-            $user = $users[$pathString[0]];
-            unset($user['password']);
+            
+            $user = setUserData($pathString[0]);
+
             return $user; 
         }
         else{

@@ -23,7 +23,9 @@ function checkLogin(){
 		if($users[$_POST['userid']]['password'] == $_POST['password']){
 	
 			$_SESSION['user'] = $_POST['userid']; 
-			echo json_encode( array('user'=>$users[$_POST['userid']]) );
+			$user = setUserData($_POST['userid']);
+			
+			echo json_encode( array('user'=>$user) );
 
 			return true;
 		}
@@ -35,21 +37,39 @@ function checkLogin(){
 }
 
 
+
+function setUserData($userid){
+	global $users; 
+	$user = $users[$userid];
+	unset($user['password']);
+	$user['userid'] = $userid;
+	return $user;
+}
+
+
+	if(!isset($_SESSION['user']) ){
+        echo json_encode( array('error'=>'user not found') );
+        exit;
+    }
+
+
+
+
 if(isset($_GET['logout'])){
 	unset($_SESSION['user']);
+	session_destroy();
+
 	echo json_encode( array('logout!') );
 
-}else if(isset($_POST['userid']) AND isset($_POST['password'])){
+}else if(isset($_POST['userid']) AND isset($_POST['password']) AND !isset($_GET['lat1'])){
 	return checkLogin(); 
-}else{
+}else if( !isset($_GET['lat1']) ){
 
 	if(!isset($_SESSION['user']) ){
 	header('HTTP/1.0 401 Not Authorized');
 	echo json_encode( array('error'=>'Not Authorized') );
-	}else{
-		$user = $users[$_SESSION['user']];
-		unset($user['password']);
-		$user['userid'] = $_SESSION['user'];
+	}else {
+		$user = setUserData($_SESSION['user']);
 		echo json_encode( $user );	
 	}
 }
