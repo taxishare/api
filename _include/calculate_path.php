@@ -35,62 +35,62 @@ function calculatePath(){
             $time = @$response_a['rows'][0]['elements'][0]['duration']['text'];
         
 
-        if(distanceGeoPoints(41.794977, 12.252183, $lat1, $long1) < 100 && distanceGeoPoints(41.823252, 12.414329, $lat2, $long2) < 100)
+        if(distanceGeoPoints(41.794977, 12.252183, $lat1, $long1) < 0.1 && distanceGeoPoints(41.823252, 12.414329, $lat2, $long2) < 0.1)
         {
             // dall'aeroporto di fiumicino a castello della magliana
             $price = 30;
         }
-        elseif(distanceGeoPoints(41.794977, 12.252183, $lat2, $long2) < 100 && distanceGeoPoints(41.823252, 12.414329, $lat1, $long1) < 100)
+        elseif(distanceGeoPoints(41.794977, 12.252183, $lat2, $long2) < 0.1 && distanceGeoPoints(41.823252, 12.414329, $lat1, $long1) < 0.1)
         {
             // da castello della magliana all'aeroporto di fiumicino
             $price = 30;
         }
-        elseif(distanceGeoPoints(41.794977, 12.252183, $lat1, $long1) < 100 && distanceGeoPoints(41.806254, 12.326192, $lat2, $long2) < 100)
+        elseif(distanceGeoPoints(41.794977, 12.252183, $lat1, $long1) < 0.1 && distanceGeoPoints(41.806254, 12.326192, $lat2, $long2) < 0.1)
         {
             // dall'aeroporto di fiumicino a nuova fiera di Roma
             $price = 25;
         }
-        elseif(distanceGeoPoints(41.794977, 12.252183, $lat2, $long2) < 100 && distanceGeoPoints(41.806254, 12.326192, $lat1, $long1) < 100)
+        elseif(distanceGeoPoints(41.794977, 12.252183, $lat2, $long2) < 0.1 && distanceGeoPoints(41.806254, 12.326192, $lat1, $long1) < 0.1)
         {
             // da nuova fiera di Roma all'aeroporto di fiumicino
             $price = 25;
         }
-        elseif(distanceGeoPoints(41.794977, 12.252183, $lat1, $long1) < 100 && distanceGeoPoints(41.797220, 12.587744, $lat2, $long2) < 100)
+        elseif(distanceGeoPoints(41.794977, 12.252183, $lat1, $long1) < 0.1 && distanceGeoPoints(41.797220, 12.587744, $lat2, $long2) < 0.1)
         {
             // dall'aeroporto di fiumicino a ciampino
             $price = 50.00;
         }
-        elseif(distanceGeoPoints(41.794977, 12.252183, $lat2, $long2) < 100 && distanceGeoPoints(41.797220, 12.587744, $lat1, $long1) < 100)
+        elseif(distanceGeoPoints(41.794977, 12.252183, $lat2, $long2) < 0.1 && distanceGeoPoints(41.797220, 12.587744, $lat1, $long1) < 0.1)
         {
             // dall'aeroporto di ciampino a fiumicino
             $price = 50.00;
         }
-        elseif(distanceGeoPoints(41.794977, 12.252183, $lat1, $long1) < 100 && distanceGeoPoints(41.909828, 12.530372, $lat2, $long2) < 100)
+        elseif(distanceGeoPoints(41.794977, 12.252183, $lat1, $long1) < 0.1 && distanceGeoPoints(41.909828, 12.530372, $lat2, $long2) < 0.1)
         {
             // dall'aeroporto di fiumicino alla stazione tiburtina
             $price = 55.00;
         }
-        elseif(distanceGeoPoints(41.794977, 12.252183, $lat2, $long2) < 100 && distanceGeoPoints(41.909828, 12.530372, $lat1, $long1) < 100)
+        elseif(distanceGeoPoints(41.794977, 12.252183, $lat2, $long2) < 0.1 && distanceGeoPoints(41.909828, 12.530372, $lat1, $long1) < 0.1)
         {
             // dalla stazione tiburtina all'aeroporto di fiumicino
             $price = 55.00;
         } 
-        elseif(distanceGeoPoints(41.797220, 12.587744, $lat1, $long1) < 100 && distanceGeoPoints(41.909828, 12.530372, $lat2, $long2) < 100)
+        elseif(distanceGeoPoints(41.797220, 12.587744, $lat1, $long1) < 0.1 && distanceGeoPoints(41.909828, 12.530372, $lat2, $long2) < 0.1)
         {
             // dall'aeroporto di ciampino a stazione tiburtina 
             $price = 35.00;
         }
-        elseif(distanceGeoPoints(41.797220, 12.587744, $lat1, $long1) < 100 && distanceGeoPoints(41.909828, 12.530372, $lat2, $long2) < 100)
+        elseif(distanceGeoPoints(41.797220, 12.587744, $lat1, $long1) < 0.1 && distanceGeoPoints(41.909828, 12.530372, $lat2, $long2) < 0.1)
         {
             // dalla stazione tiburtina  all'aeroporto di ciampino
             $price = 35.00;
         }  
-        elseif(distanceGeoPoints(41.797220, 12.587744, $lat1, $long1) < 100 && distanceGeoPoints(41.874142, 12.484175, $lat2, $long2) < 100)
+        elseif(distanceGeoPoints(41.797220, 12.587744, $lat1, $long1) < 0.1 && distanceGeoPoints(41.874142, 12.484175, $lat2, $long2) < 0.1)
         {
             // dall'aeroporto di ciampino a stazione ostiense 
             $price = 35.00;
         }
-        elseif(distanceGeoPoints(41.797220, 12.587744, $lat2, $long2) < 100 && distanceGeoPoints(41.874142, 12.484175, $lat1, $long1) < 100)
+        elseif(distanceGeoPoints(41.797220, 12.587744, $lat2, $long2) < 0.1 && distanceGeoPoints(41.874142, 12.484175, $lat1, $long1) < 0.1)
         {
             // dall'aeroporto di ciampino a stazione ostiense 
             $price = 35.00;
